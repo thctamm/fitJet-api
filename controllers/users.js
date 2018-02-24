@@ -15,7 +15,7 @@ exports.createUser = (req, res, next) => {
   newUser.save(err => {
     if (err)
       return next(err)
-    return res.sendStatus(200)
+    return res.json(newUser)
   }).catch(next)
   return
 }

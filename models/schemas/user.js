@@ -4,8 +4,7 @@ const Schema = mongoose.Schema
 var userSchema = new Schema(
   {
     name: {type: String, required: true},
-    token: String,
-    station: {type: Number},
+    station: {type: Number, required: true, default: -1},
     faces: [{type: String}],
   },
   {

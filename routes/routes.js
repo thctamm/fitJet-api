@@ -36,7 +36,7 @@ router.route('/workouts')
 router.route('/workouts/:workoutId/exercises')
   .post(workouts.addExercise)
 
-router.route('/workouts/:workoutId/exercises/next')
+router.route('/stations/:stationId/next')
   .post(workouts.nextExercise)
 
 /*

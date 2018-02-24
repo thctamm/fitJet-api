@@ -35,16 +35,21 @@ exports.addExercise = (req, res, next) => {
 }
 
 exports.nextExercise = (req, res, next) => {
-  Workout.findById(req.params.workoutId).then(wrk => {
-    if (!wrk)
-      return res.status(404).send('workout not found')
-    if (wrk.currentExercise >= wrk.exercise.length)
-      return res.json(wrk)
-    wrk.currentExercise++
-    wrk.save(err => {
-      if (err)
-        res.status(400).send('failed to save workout after going to next exercise')
-      return res.json(wrk)
-    })
+  User.find({station: req.params.stationId}).then(user => {
+    if (!user)
+      return res.status(404).send('user not found')
+
+    Workout.find({user: user._id}).sort('-createdDate').then(wrk => {
+      if (!wrk)
+        return res.status(404).send('workout not found')
+      if (wrk.currentExercise >= wrk.exercise.length)
+        return res.json(wrk)
+      wrk.currentExercise++
+      wrk.save(err => {
+        if (err)
+          res.status(400).send('failed to save workout after going to next exercise')
+        return res.json(wrk)
+      })
+    }).catch(next)
   }).catch(next)
 }
