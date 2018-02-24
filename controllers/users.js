@@ -12,6 +12,7 @@ const face = new cognitive.face({
 */
 exports.createUser = (req, res, next) => {
   const newUser = new User(req.body)
+  console.log(req.body)
   newUser.save(err => {
     if (err)
       return next(err)
