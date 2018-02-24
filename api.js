@@ -15,7 +15,7 @@ mongoose.connect(config.dbUrl, {server: {socketOptions: {keepAlive: 120}}})
 const app = express()
 app.use(logger('dev'))
 app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({ extended: false }))
+app.use(bodyParser.urlencoded({ extended: false, limit: '1gb' }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
