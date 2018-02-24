@@ -22,6 +22,7 @@ exports.createUser = (req, res, next) => {
 }
 
 exports.addFace = (req, res, next) => {
+  console.log('addFace bod: ' + req.body)
   face.addAFaceToAFaceList({
     parameters: {faceListId: config.faceListId},
     headers: {'Content-type': 'application/octet-stream'},
