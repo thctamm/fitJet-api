@@ -27,6 +27,8 @@ exports.addFace = (req, res, next) => {
     headers: {'Content-type': 'application/octet-stream'},
     body: req.body,
   }).then((response) => {
+    console.log('msft response: ')
+    console.log(response)
     parameters = {
         faceListId: faceListId,
         persistedFaceId: response.persistedFaceId
