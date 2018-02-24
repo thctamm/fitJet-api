@@ -3,5 +3,5 @@ module.exports = {
   dbUrl: process.env.DB_URL || 'localhost',
   msEnd: 'eastus.api.cognitive.microsoft.com',
   msKey: process.env.MS_KEY,
-  faceListId: 'fitJet-1918',
+  faceListId: 'fitjet-1918',
 }
