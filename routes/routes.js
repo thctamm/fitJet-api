@@ -15,7 +15,7 @@ router.route('/users')
 
 router.route('/users/:userId')
   .get(users.getUserById)
-  .put(users.addFace)
+  .post(users.addFace)
 
 router.route('/users/pic')
   .put(users.getUserByPic)
